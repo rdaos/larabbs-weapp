@@ -156,6 +156,11 @@ page{
       this.user = await this.$parent.getCurrentUser()
       this.$apply()
     }
+    async onShow() {
+      this.$parent.checkRefreshPages(this.getCurrentPages().pop().route, () => {
+        this.getTopic(this.topic.id)
+      })
+    }
     methods = {
       async deleteTopic() {
         // 删除确认

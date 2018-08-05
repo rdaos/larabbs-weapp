@@ -131,9 +131,9 @@
       // 调用组件的 reload 方法
       this.$invoke('topiclist', 'reload')
     }
-    async onShow() {
+    onShow() {
       this.$parent.checkRefreshPages(this.getCurrentPages().pop().route, () => {
-        this.getTopic(this.topic.id)
+        this.$invoke('topiclist', 'reload')
       })
     }
     async onPullDownRefresh() {
